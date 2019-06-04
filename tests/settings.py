@@ -47,3 +47,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
+CMS_TEMPLATES = [
+    ('djangocms_cameraslider/base.html', 'Default template'),
+]

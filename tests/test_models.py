@@ -2,14 +2,17 @@
 from __future__ import unicode_literals
 
 from django.core.files import File
+from django.core.exceptions import ValidationError
 
+from cms.api import create_page
 from cms.test_utils.testcases import CMSTestCase
+from cms.utils.conf import get_cms_setting
 from filer.models import Image as FilerImage
 
-from ..models import Slider, Slide
+from djangocms_cameraslider.models import Slider, Slide
 
 
-class SliderModelTest(CMSTestCase):
+class SliderModelTestCase(CMSTestCase):
     def test_creating_new_slider(self):
         s = Slider.objects.create(name='test')
 
@@ -20,11 +23,12 @@ class SliderModelTest(CMSTestCase):
         self.assertEqual(s.__str__(), s.name)
 
 
-class SlideModelTest(CMSTestCase):
+class SlideModelTestCase(CMSTestCase):
     def setUp(self):
-        f = FilerImage.objects.create(original_filename='test',
-            file=File(open('djangocms_cameraslider/tests/media/avatar.png')))
-        self.slide = Slide.objects.create(image=f)
+        self.f = FilerImage.objects.create(
+            original_filename='test',
+            file=File(open('tests/media/avatar.png')))
+        self.slide = Slide.objects.create(image=self.f)
 
     def test_creating_new_slide(self):
         s = self.slide
@@ -42,3 +46,16 @@ class SlideModelTest(CMSTestCase):
         s = self.slide
         dimensions = '%sx%s' % (s.width, s.height)
         self.assertEqual(s.get_dimensions(), dimensions)
+
+    def test_clean(self):
+        print(get_cms_setting('TEMPLATES'))
+        _page = create_page('test page 1', get_cms_setting('TEMPLATES')[0][0], 'en', published=False)
+        _slide = Slide.objects.create(image=self.f, page_url=_page)
+        self.assertIsNone(_slide.clean())
+
+        _slide.link_url = 'https://utu.be'
+        with self.assertRaises(ValidationError):
+            _slide.clean()
+
+        _slide.delete()
+        _page.delete

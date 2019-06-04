@@ -7,6 +7,11 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+TEST_REQUIREMENTS = [
+    'pytest',
+    'pytest-cov',
+    'pytest-django'
+]
 
 setup(
     name='djangocms-cameraslider',
@@ -22,12 +27,6 @@ setup(
         'djangocms_cameraslider',
     ],
     include_package_data=True,
-    install_requires=[
-        'django-cms>=3.2',
-        'django-filer',
-        'easy-thumbnails',
-        'djangocms-text-ckeditor',
-    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -43,4 +42,13 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    install_requires=[
+        'django-cms>=3.2',
+        'django-mptt==0.9.0',
+        'django-filer',
+        'easy-thumbnails',
+        'djangocms-text-ckeditor',
+    ],
+    setup_requires=['pytest-runner'],
+    tests_require=TEST_REQUIREMENTS
 )

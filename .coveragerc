@@ -4,10 +4,14 @@ source = djangocms_cameraslider
 
 [report]
 omit = 
+    *eggs*
     *migrations*
     *tests*
     *__init__*
     *apps*
+    *settings*
+    manage.py
+    setup.py
 
 exclude_lines =
     # Don't complain about missing debug-only code:
