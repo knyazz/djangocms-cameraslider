@@ -18,9 +18,13 @@
 	<script type="text/javascript" src="{{ app_settings.JS_URL }}"></script>
 	<script type="text/javascript">
 		function init_camera_slider(){
-			var block_name = '#{{ instance.slider_id }} > .slider_inner';
-      if ( $(block_name).length ){
-          $(block_name).camera(JSON.parse('{% if instance.slider_config %}{{ instance.slider_config|safe }}{% endif %}')); 
+			var blockName = '#{{ instance.slider_id }} > .slider_inner',
+          sliderConfig = null;
+      {% if instance.slider_config %}
+          sliderConfig = {{ instance.slider_config|safe }};
+      {% endif %}
+      if ( $(blockName).length && sliderConfig){
+        $(blockName).camera(sliderConfig);
       }
     }
 		$(function(){
