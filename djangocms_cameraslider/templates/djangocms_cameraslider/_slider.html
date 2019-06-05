@@ -24,10 +24,11 @@
           sliderConfig = {{ instance.slider_config|safe }};
       {% endif %}
       if ( $(blockName).length && sliderConfig){
-        $(blockName).camera(sliderConfig);
+        // $(blockName).camera(sliderConfig);
       }
     }
 		$(function(){
+      new WOW().init();
 			init_camera_slider();
 		});
 	</script>
