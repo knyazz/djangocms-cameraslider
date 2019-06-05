@@ -2,11 +2,8 @@
 from __future__ import unicode_literals
 
 from django.core.files import File
-from django.core.exceptions import ValidationError
 
-from cms.api import create_page
 from cms.test_utils.testcases import CMSTestCase
-from cms.utils.conf import get_cms_setting
 from filer.models import Image as FilerImage
 
 from djangocms_cameraslider.models import Slider, Slide
@@ -41,21 +38,3 @@ class SlideModelTestCase(CMSTestCase):
 
         s.caption = 'test caption'
         self.assertEqual(s.__str__(), s.caption)
-
-    def test_dimensions(self):
-        s = self.slide
-        dimensions = '%sx%s' % (s.width, s.height)
-        self.assertEqual(s.get_dimensions(), dimensions)
-
-    def test_clean(self):
-        print(get_cms_setting('TEMPLATES'))
-        _page = create_page('test page 1', get_cms_setting('TEMPLATES')[0][0], 'en', published=False)
-        _slide = Slide.objects.create(image=self.f, page_url=_page)
-        self.assertIsNone(_slide.clean())
-
-        _slide.link_url = 'https://utu.be'
-        with self.assertRaises(ValidationError):
-            _slide.clean()
-
-        _slide.delete()
-        _page.delete
