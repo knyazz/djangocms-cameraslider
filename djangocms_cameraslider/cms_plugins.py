@@ -13,7 +13,7 @@ from .settings import app_settings
 
 class SliderPlugin(CMSPluginBase):
     name = _('Slider')
-    module = _('DjangoCMS FlexSlider')
+    module = _('DjangoCMS Camera Slider')
     model = Slider
     render_template = 'djangocms_cameraslider/_slider.html'
     cache = False
@@ -30,7 +30,7 @@ plugin_pool.register_plugin(SliderPlugin)
 
 class SlidePlugin(CMSPluginBase):
     name = _('Slide')
-    module = _('DjangoCMS FlexSlider')
+    module = _('DjangoCMS Camera Slider')
     model = Slide
     form = SlideForm
     render_template = 'djangocms_cameraslider/_slide.html'
