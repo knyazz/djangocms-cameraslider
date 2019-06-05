@@ -7,7 +7,7 @@ from cms.api import add_plugin
 from cms.models import Placeholder
 from cms.toolbar.utils import get_toolbar_from_request
 
-from djangocms_cameraslider.cms_plugins import SliderPlugin
+from djangocms_cameraslider.cms_plugins import CameraSliderPlugin
 
 
 class SliderPluginTestCase(TestCase):
@@ -15,7 +15,7 @@ class SliderPluginTestCase(TestCase):
         placeholder = Placeholder.objects.create(slot='test')
         model_instance = add_plugin(
             placeholder,
-            SliderPlugin,
+            CameraSliderPlugin,
             'en',
         )
         plugin_instance = model_instance.get_plugin_class_instance()
@@ -26,7 +26,7 @@ class SliderPluginTestCase(TestCase):
         placeholder = Placeholder.objects.create(slot='test')
         model_instance = add_plugin(
             placeholder,
-            SliderPlugin,
+            CameraSliderPlugin,
             'en',
         )
         toolbar = get_toolbar_from_request({})

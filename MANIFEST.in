@@ -1,5 +1,5 @@
 include LICENSE
-include README.rst
+include README.md
 recursive-include djangocms_cameraslider/locale *
 recursive-include djangocms_cameraslider/migrations *
 recursive-include djangocms_cameraslider/templates *

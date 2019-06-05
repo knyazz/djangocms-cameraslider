@@ -11,7 +11,7 @@ from filer.fields.image import FilerImageField
 
 
 @python_2_unicode_compatible
-class Slider(CMSPlugin):
+class CameraSlider(CMSPlugin):
     """
     Used to model the image slider.
     """
@@ -31,12 +31,12 @@ class Slider(CMSPlugin):
         return self.name
 
     class Meta:
-        verbose_name = _('Slider')
-        verbose_name_plural = _('Sliders')
+        verbose_name = _('Camera Slider')
+        verbose_name_plural = _('Camera Sliders')
 
 
 @python_2_unicode_compatible
-class Slide(CMSPlugin):
+class CameraSlide(CMSPlugin):
     """
     Used to model the slides in a slider.
     """
@@ -51,5 +51,5 @@ class Slide(CMSPlugin):
         return self.image.url
 
     class Meta:
-        verbose_name = _('Slide')
-        verbose_name_plural = _('Slides')
+        verbose_name = _('Camera Slide')
+        verbose_name_plural = _('Camera Slides')
