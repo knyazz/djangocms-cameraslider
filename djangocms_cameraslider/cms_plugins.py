@@ -18,7 +18,7 @@ class CameraSliderPlugin(CMSPluginBase):
     render_template = 'djangocms_cameraslider/_slider.html'
     cache = False
     allow_children = True
-    child_classes = ['CameraSliderPlugin', ]
+    child_classes = ['CameraSlidePlugin']
 
     def render(self, context, instance, placeholder):
         context = super(CameraSliderPlugin, self).render(context, instance, placeholder)
