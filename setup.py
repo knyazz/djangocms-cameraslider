@@ -1,7 +1,7 @@
 import os
-from setuptools import find_packages, setup
+import setuptools
 
-with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
 # allow setup.py to be run from any path
@@ -13,12 +13,13 @@ TEST_REQUIREMENTS = [
     'pytest-django'
 ]
 
-setup(
+setuptools.setup(
     name='djangocms-cameraslider',
-    version='0.0.1',
+    version='0.1.0',
     license='MIT License',
     description='A Django CMS image slider plugin that uses Camera Slider/Slideshow.',
     long_description=README,
+    long_description_content_type="text/markdown",
     url='https://github.com/knyazz/djangocms-cameraslider',
     author='Evgenii Smirnov',
     author_email='knyazz@gmail.com',
