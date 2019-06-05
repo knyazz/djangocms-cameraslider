@@ -1,8 +1,4 @@
-{% load thumbnail %}
-
-{% thumbnail instance.image instance.get_dimensions crop subject_location=instance.image.subject_location as photo %}
-
-<div data-thumb="{{ photo.url }}" data-src="{{ photo.url }}">
+<div data-thumb="{{ instance.image.url }}" data-src="{{ instance.image.url }}">
   <div class="camera_caption">
     <div class="container">
       {{ plugin.caption|safe }}
