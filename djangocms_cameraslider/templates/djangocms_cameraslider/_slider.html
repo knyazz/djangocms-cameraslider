@@ -5,7 +5,7 @@
   {% for plugin in instance.child_plugin_instances %}
 		{% render_plugin plugin %}
   {% endfor %}
-</div>
+  </div>
 </section>
 
 
@@ -29,7 +29,7 @@
     }
 		$(function(){
       new WOW().init();
-			init_camera_slider();
+      setTimeout(function() {init_camera_slider();}, 199);
 		});
 	</script>
 {% endaddtoblock %}
