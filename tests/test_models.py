@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.core.files import File
 
 from cms.test_utils.testcases import CMSTestCase

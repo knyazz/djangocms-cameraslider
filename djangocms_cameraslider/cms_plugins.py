@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
@@ -21,9 +18,10 @@ class CameraSliderPlugin(CMSPluginBase):
     child_classes = ['CameraSlidePlugin']
 
     def render(self, context, instance, placeholder):
-        context = super(CameraSliderPlugin, self).render(context, instance, placeholder)
+        context = super().render(context, instance, placeholder)
         context['app_settings'] = app_settings
         return context
+
 
 plugin_pool.register_plugin(CameraSliderPlugin)
 
@@ -36,5 +34,6 @@ class CameraSlidePlugin(CMSPluginBase):
     render_template = 'djangocms_cameraslider/_slide.html'
     cache = False
     require_parent = True
+
 
 plugin_pool.register_plugin(CameraSlidePlugin)
