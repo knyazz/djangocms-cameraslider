@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_text_ckeditor.fields import HTMLField
@@ -10,7 +6,6 @@ from cms.models import CMSPlugin
 from filer.fields.image import FilerImageField
 
 
-@python_2_unicode_compatible
 class CameraSlider(CMSPlugin):
     """
     Used to model the image slider.
@@ -35,7 +30,6 @@ class CameraSlider(CMSPlugin):
         verbose_name_plural = _('Camera Sliders')
 
 
-@python_2_unicode_compatible
 class CameraSlide(CMSPlugin):
     """
     Used to model the slides in a slider.

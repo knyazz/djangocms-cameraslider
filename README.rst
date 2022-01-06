@@ -4,9 +4,8 @@ This is a simple `django-cms`_ plugin that implements the jQuery Camera Slider/S
 
 Dependencies
 ------------
-- django>=1.8
-- django<2.0
-- django-cms>=3.2
+- django>=3.2
+- django-cms>=3.9
 
 Installation
 ------------
