@@ -15,7 +15,7 @@ TEST_REQUIREMENTS = [
 
 setuptools.setup(
     name='djangocms-cameraslider',
-    version='1.0.0',
+    version='1.0.1',
     license='MIT License',
     description='A Django CMS image slider plugin that uses Camera Slider/Slideshow.',
     long_description=README,
@@ -41,7 +41,7 @@ setuptools.setup(
     ],
     install_requires=[
         'django-cms>=3.9.0',
-        'django-mptt==0.9.0',
+        'django-mptt==0.13.4',
         'django-filer',
         'easy-thumbnails',
         'djangocms-text-ckeditor',
